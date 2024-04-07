@@ -1,6 +1,6 @@
 ## Superheroes Backend App
 
-This is an application to recover imported superhero data from CSV file wiht options like filtering, sorting and order by.
+This is an application made in laravel to recover imported superhero data from CSV file and deliver the information through an endpoint with options like filtering, paginated, sorting and order by.
 
 
 ## How to use the project and import CSV data
