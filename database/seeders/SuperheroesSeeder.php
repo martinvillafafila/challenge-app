@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Superhero;
+use App\Models\CsvData;
 
 class SuperheroesSeeder extends Seeder
 {
@@ -13,28 +14,29 @@ class SuperheroesSeeder extends Seeder
      */
     public function run(): void
     {
+        $file = CsvData::where('keyName', env('FILE_KEY_NAME'))->firstOrFail();
         Superhero::truncate();
-        $csvData = fopen(base_path('database/csv/superheros.csv'), 'r');
+        $csvData = fopen($file->url, 'r');
         $transRow = true;
         while (($data = fgetcsv($csvData, 555, ',')) !== false) {
             if (!$transRow) {
                 Superhero::create([
-                    'id'=> $data['0'],
-                    'name'=> $data['1'],
-                    'fullName'=> $data['2'],
-                    'strength'=> $data['3'],
-                    'speed'=> $data['4'],
-                    'durability'=> $data['5'],
-                    'power'=> $data['6'],
-                    'combat'=> $data['7'],
-                    'race'=> $data['8'],
-                    'height/0'=> $data['9'],
-                    'height/1'=> $data['10'],
-                    'weight/0'=> $data['11'],
-                    'weight/1'=> $data['12'],
-                    'eyeColor'=> $data['13'],
-                    'hairColor'=> $data['14'],
-                    'publisher'=> $data['15'],
+                    'id' => $data['0'],
+                    'name' => $data['1'],
+                    'fullName' => $data['2'],
+                    'strength' => $data['3'],
+                    'speed' => $data['4'],
+                    'durability' => $data['5'],
+                    'power' => $data['6'],
+                    'combat' => $data['7'],
+                    'race' => $data['8'],
+                    'height/0' => $data['9'],
+                    'height/1' => $data['10'],
+                    'weight/0' => $data['11'],
+                    'weight/1' => $data['12'],
+                    'eyeColor' => $data['13'],
+                    'hairColor' => $data['14'],
+                    'publisher' => $data['15'],
                 ]);
             }
             $transRow = false;

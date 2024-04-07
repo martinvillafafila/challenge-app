@@ -4,20 +4,25 @@ This is an application to recover imported superhero data from CSV file wiht opt
 
 
 ## How to use the projecvt and import CSV data
-To install the dependencies 'Composer install'.
 
-To create the database schema 'php artisan migrate'
+To install the dependencies `Composer install`.
 
-To add csv data to database, place the csv file inside database/csv (is there one already), and run the SuperheroesSeeder with 'php artisan db:seed --class=SuperheroesSeeder'.
+To create the database schema `php artisan migrate`.
 
-To start the server 'Php artisan serve'.
+To add csv Url into the database (the url is inside the .env variables)  run the SuperheroesSeeder with `php artisan db:seed --class=CsvDataSeeder`.
+
+To add csv data to database run the SuperheroesSeeder with `php artisan db:seed --class=SuperheroesSeeder`.
+
+To start the server `php artisan serve`.
+
+To test the application `php artisan test`.
 
 
 ## Considerations
 
-The application has a static authorization token, ideally it will be dynamic using the JWT library.
+The application has a static authorization token, ideally it will be dynamic using the JWT library with an integration with the user model.
 
-The database schema maps all the information into a single table, ideally attributes like height and weight will be in separate tables with a foreign key for normalization, for example Height/1 will be in a table heights with atributes sueperheroesKey, value, metricSystem.
+The database schema maps all the information into a single table, ideally attributes like height and weight will be in separate tables with a foreign key for normalization, for example Height/1 will be in a table `heights` with the atributes: `sueperheroesKey`, `value`, `metricSystem`.
 
 
 ## License
