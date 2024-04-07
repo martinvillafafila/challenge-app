@@ -3,7 +3,7 @@
 This is an application to recover imported superhero data from CSV file wiht options like filtering, sorting and order by.
 
 
-## How to use the projecvt and import CSV data
+## How to use the project and import CSV data
 
 To install the dependencies `Composer install`.
 
